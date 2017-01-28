@@ -1,3 +1,3 @@
-# SailsProject
+# ProjectSails
 
 a [Sails](http://sailsjs.org) application
