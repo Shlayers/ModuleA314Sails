@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="/styles/style.css">
+      <script type="text/javascript">
+        setTimeout(function sunrise () {
+          document.getElementsByClassName('header')[0].style.backgroundColor = '#118798';
+        }, 0);
+      </script>
+      <title>Mon compte</title>
+  </head>
+
+  <body>
+    <div class="default-page">
+    <div class="header">
+      <h1 id="main-title" class="container">Mon compte</h1>
+    </div>
+    <div class="main container clearfix">
+
+    <h2>Informations relatives à votre compte:</h2>
+      <br />
+
+      <p><%= user.email %></p>
+      <p><%= user.adresses[0].adresse %></p>
+      <p><%= user.adresses[0].code_postal %></p>
+      <p><%= user.adresses[0].ville %></p>
+
+      <br /><br />
+    <h2>Modifier les informations relatives à votre compte:</h2>
+    <br />
+      <form method="POST" action="/user/<%= user.id %>">
+        <p> Votre Email: </p>
+          <input type="email" name="email"><br /><br />
+          <input type="submit" value="valider">
+      </form>
+      <form method="POST" action="/adress/<%= user.adresses[0].id %>">
+        <p> Votre adresse: </p>
+          <input type="text" name="adresse">
+        <p> Votre code postal: </p>
+          <input type="number" name="code_postal">
+        <p> Votre ville: </p>
+          <input type="text" name="ville">
+            <br /><br />
+            <input type="submit" value="valider">
+      </form>
+
+    <script src="/js/dependencies/sails.io.js"></script>
+  </body>
+
+</html>
+
+
