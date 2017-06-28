@@ -16,15 +16,17 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
 
-module.exports.policies = {
 
-   '*': true,
+module.exports.policies = {
+  '*': true,
 
   'PostController': {
-    '*': 'sessionAuth'
+    '*': 'isAuthenticated'
   },
-
-};
+  'UserController': {
+    'moncompte': 'isAuthenticated',
+    'mesarticles': 'isAuthenticated'
+  }
 
   /***************************************************************************
   *                                                                          *
@@ -55,4 +57,4 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
-
+};
